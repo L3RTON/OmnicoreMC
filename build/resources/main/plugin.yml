@@ -1,0 +1,14 @@
+name: Omnicore
+version: '0.1.0'
+main: me.spigot.Omnicore.Omnicore
+api-version: '1.21.4'
+depend: [ ProtocolLib ]
+commands:
+  vanish:
+    description: "rende il player invisibile"
+    usage: /vanish <PlayerName>
+    permission:
+      omnicore.vanish:
+        description: "ti permette di svanire in game."
+        default: op
+      permission-message: Non hai i permessi necessari per usare questo comando.
