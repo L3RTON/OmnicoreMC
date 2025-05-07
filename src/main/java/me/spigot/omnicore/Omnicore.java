@@ -1,6 +1,6 @@
-package me.spigot.Omnicore;
+package me.spigot.omnicore;
 
-import me.spigot.Omnicore.Commands.*;
+import me.spigot.omnicore.Commands.*;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
