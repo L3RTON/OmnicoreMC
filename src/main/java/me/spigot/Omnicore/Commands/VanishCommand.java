@@ -12,9 +12,7 @@ public class VanishCommand implements CommandExecutor {
 
     private JavaPlugin plugin;
 
-    public VanishCommand(JavaPlugin plugin) {
-        this.plugin = plugin;
-    }
+    public VanishCommand(JavaPlugin plugin) { this.plugin = plugin; }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

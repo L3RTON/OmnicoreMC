@@ -25,6 +25,7 @@ repositories {
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT") //spigot-api
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.7.0"; //protocollib
+    compileOnly("org.projectlombok:lombok:1.18.38") //lombok
 }
 
 def targetJavaVersion = 17
