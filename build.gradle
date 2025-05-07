@@ -19,7 +19,6 @@ repositories {
         name = "protocollib"
         url = "https://repo.dmulloy2.net/repository/public/"
     }
-
 }
 
 dependencies {
@@ -28,7 +27,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.38") //lombok
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

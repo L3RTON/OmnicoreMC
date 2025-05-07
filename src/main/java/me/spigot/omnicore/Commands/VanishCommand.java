@@ -1,4 +1,4 @@
-package me.spigot.Omnicore.Commands;
+package me.spigot.omnicore.Commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
