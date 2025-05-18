@@ -8,15 +8,3 @@ commands:
     description: "Rende il player invisibile."
     usage: /vanish <PlayerName>
     permission: op
-  tpa:
-    description: "Puoi richiedere un tp."
-    usage: /tpa <PlayerName>
-    permission: op
-  tpaccept:
-    description: "Accetta la richiesta di tp."
-    usage: /tpaccept
-    permission: op
-  tpdeny:
-    description: "Rifiuta la richiesta di tp."
-    usage: /tpdeny
-    permission: op

@@ -19,7 +19,7 @@ public class VanishCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("omnicore.vanish")){
+        if (!sender.hasPermission("omnicore.vanish")) {
 
             sender.sendMessage(ChatColor.DARK_RED + "Non hai i permessi necessari per eseguire questo comando.");
             return false;
@@ -39,10 +39,32 @@ public class VanishCommand implements CommandExecutor {
         boolean isVanished = target.isInvisible();
         target.setInvisible(!isVanished);
 
-        if (!isVanished)
+        if (!isVanished){
+            if (target != sender){
+                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " è ora invisibile.");
+
+                for (Player p : Bukkit.getOnlinePlayers())
+                    p.hidePlayer(plugin, target);
+                return true;
+            }
             sender.sendMessage(ChatColor.GREEN + "Ora sei invisibile.");
-        else
+
+            for (Player p : Bukkit.getOnlinePlayers())
+                p.hidePlayer(plugin, target);
+        }
+        else{
+            if (target != sender){
+                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.RED + " è ora visibile.");
+
+                for (Player p : Bukkit.getOnlinePlayers())
+                    p.hidePlayer(plugin, target);
+                return true;
+            }
             sender.sendMessage(ChatColor.RED + "Sei tornato visibile!");
+
+            for (Player p : Bukkit.getOnlinePlayers())
+                p.showPlayer(plugin, target);
+        }
 
         return true;
     }

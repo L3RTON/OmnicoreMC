@@ -1,19 +1,21 @@
 package me.spigot.Omnicore;
 
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-
 
 public class Omnicore extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getCommand("omnicore").setExecutor(this);
+        //getCommand("omnicore").setExecutor(this);
         getCommand("vanish").setExecutor(new VanishCommand(this));
+        FileConfiguration config = getConfig();
+        config.options().copyDefaults(true);
 
         System.out.println("""
-                 
+                
                  ██████╗ ███╗   ███╗███╗   ██╗██╗ ██████╗ ██████╗ ██████╗ ███████╗
                 ██╔═══██╗████╗ ████║████╗  ██║██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
                 ██║   ██║██╔████╔██║██╔██╗ ██║██║██║     ██║   ██║██████╔╝█████╗ 

@@ -13,7 +13,7 @@ public class OmniLog {
     }
 
     public static void Info(CommandSender sender, String message){
-        String prefix = ChatColor.BLUE + "[OmniInfo] ";
+        String prefix = ChatColor.YELLOW + "[OmniInfo] ";
         String finalMessage = prefix + message;
 
         sender.sendMessage(finalMessage);
@@ -24,8 +24,5 @@ public class OmniLog {
         String finalMessage = prefix + message;
 
         Bukkit.getConsoleSender().sendMessage(finalMessage);
-
-        if (sender != null)
-            sender.sendMessage(finalMessage);
     }
 }
