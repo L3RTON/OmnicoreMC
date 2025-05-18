@@ -5,10 +5,18 @@ api-version: '1.21.4'
 depend: [ ProtocolLib ]
 commands:
   vanish:
-    description: "rende il player invisibile"
+    description: "Rende il player invisibile."
     usage: /vanish <PlayerName>
-    permission:
-      omnicore.vanish:
-        description: "ti permette di svanire in game."
-        default: op
-      permission-message: Non hai i permessi necessari per usare questo comando.
+    permission: op
+  tpa:
+    description: "Puoi richiedere un tp."
+    usage: /tpa <PlayerName>
+    permission: op
+  tpaccept:
+    description: "Accetta la richiesta di tp."
+    usage: /tpaccept
+    permission: op
+  tpdeny:
+    description: "Rifiuta la richiesta di tp."
+    usage: /tpdeny
+    permission: op

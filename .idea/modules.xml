@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Omnicore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Omnicore.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpigotPlugin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SpigotPlugin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/me.spigot.Omnicore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/me.spigot.Omnicore.main.iml" />
     </modules>
   </component>
 </project>

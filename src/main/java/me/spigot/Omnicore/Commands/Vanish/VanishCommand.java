@@ -1,5 +1,6 @@
-package me.spigot.Omnicore.Commands;
+package me.spigot.Omnicore.Commands.Vanish;
 
+import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -18,16 +19,20 @@ public class VanishCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage(ChatColor.DARK_RED + "Sintassi non corretta (Uso corretto: /vanish <PlayerName>)");
+        if (!sender.hasPermission("omnicore.vanish")){
 
+            sender.sendMessage(ChatColor.DARK_RED + "Non hai i permessi necessari per eseguire questo comando.");
+            return false;
+        }
+
+        if (args.length != 1) {
+            OmniLog.Error(sender, "Syntax Error! use /vanish <PlayerName>.");
             return true;
         }
 
         Player target = Bukkit.getPlayerExact(args[0]);
         if (target == null) {
-            sender.sendMessage(ChatColor.DARK_RED + "Giocatore non trovato.");
-
+            OmniLog.Error(sender, "Giocatore non trovato o invalido.");
             return true;
         }
 
@@ -35,9 +40,9 @@ public class VanishCommand implements CommandExecutor {
         target.setInvisible(!isVanished);
 
         if (!isVanished)
-            sender.sendMessage(ChatColor.DARK_GREEN + "Ora sei invisibile.\n");
+            sender.sendMessage(ChatColor.GREEN + "Ora sei invisibile.");
         else
-            sender.sendMessage(ChatColor.DARK_RED + "Sei tornato visibile!\n");
+            sender.sendMessage(ChatColor.RED + "Sei tornato visibile!");
 
         return true;
     }
