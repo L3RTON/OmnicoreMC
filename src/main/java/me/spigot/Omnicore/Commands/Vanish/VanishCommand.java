@@ -1,21 +1,19 @@
 package me.spigot.Omnicore.Commands.Vanish;
 
+import me.spigot.Omnicore.API.Interface.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class VanishCommand implements CommandExecutor {
+public class VanishCommand extends OmniCommand {
 
     private JavaPlugin plugin;
 
-    public VanishCommand(JavaPlugin plugin) {
-        this.plugin = plugin;
-    }
+    public VanishCommand(JavaPlugin plugin, String commandName, String description) { super(plugin, commandName, description); this.plugin = plugin; }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

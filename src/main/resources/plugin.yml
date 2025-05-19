@@ -8,3 +8,8 @@ commands:
     description: "Rende il player invisibile."
     usage: /vanish <PlayerName>
     permission: op
+    default: true
+  omnihelp:
+    description: "Mostra i comandi del plugin"
+    usage: /omnihelp
+    default: true

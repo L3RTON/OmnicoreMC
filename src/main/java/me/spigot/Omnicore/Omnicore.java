@@ -1,6 +1,7 @@
 package me.spigot.Omnicore;
 
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
+import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -14,7 +15,8 @@ public class Omnicore extends JavaPlugin implements Listener {
 
         try {
             //getCommand("omnicore").setExecutor(this);
-            getCommand("vanish").setExecutor(new VanishCommand(this));
+            getCommand("vanish").setExecutor(new VanishCommand(this, "vanish", "Rende il player invisibile."));
+            getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             saveDefaultConfig();
         } catch (Exception e) {
@@ -23,7 +25,6 @@ public class Omnicore extends JavaPlugin implements Listener {
             return;
         }
         OmniLog.Info(getServer().getConsoleSender(), """
-                
                 
                  ██████  ███    ███ ███    ██ ██  ██████  ██████  ██████  ███████
                 ██    ██ ████  ████ ████   ██ ██ ██      ██    ██ ██   ██ ██     
