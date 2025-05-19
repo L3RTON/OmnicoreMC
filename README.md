@@ -1,1 +1,1 @@
-# OmniCore
+# Omnicore
