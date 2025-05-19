@@ -1,5 +1,6 @@
 package me.spigot.Omnicore;
 
+import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -9,22 +10,37 @@ public class Omnicore extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        //getCommand("omnicore").setExecutor(this);
-        getCommand("vanish").setExecutor(new VanishCommand(this));
-        FileConfiguration config = getConfig();
-        config.options().copyDefaults(true);
+        OmniLog.Info(getServer().getConsoleSender(), "Caricamento Omnicore in corso...");
 
-        System.out.println("""
+        try {
+            //getCommand("omnicore").setExecutor(this);
+            getCommand("vanish").setExecutor(new VanishCommand(this));
+
+            saveDefaultConfig();
+        } catch (Exception e) {
+            OmniLog.LogException("Omnicore ha riscontrato un errore e non è riuscito ad avviarsi!", e);
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+        OmniLog.Info(getServer().getConsoleSender(), """
                 
-                 ██████╗ ███╗   ███╗███╗   ██╗██╗ ██████╗ ██████╗ ██████╗ ███████╗
-                ██╔═══██╗████╗ ████║████╗  ██║██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
-                ██║   ██║██╔████╔██║██╔██╗ ██║██║██║     ██║   ██║██████╔╝█████╗ 
-                ██║   ██║██║╚██╔╝██║██║╚██╗██║██║██║     ██║   ██║██╔══██╗██╔══╝ 
-                ╚██████╔╝██║ ╚═╝ ██║██║ ╚████║██║╚██████╗╚██████╔╝██║  ██║███████╗
-                 ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
-                Omnicore è stato caricato con successo!
+                
+                 ██████  ███    ███ ███    ██ ██  ██████  ██████  ██████  ███████
+                ██    ██ ████  ████ ████   ██ ██ ██      ██    ██ ██   ██ ██     
+                ██    ██ ██ ████ ██ ██ ██  ██ ██ ██      ██    ██ ██████  █████  
+                ██    ██ ██  ██  ██ ██  ██ ██ ██ ██      ██    ██ ██   ██ ██     
+                 ██████  ██      ██ ██   ████ ██  ██████  ██████  ██   ██ ███████
+                 
+                            Omnicore è stato caricato con successo!
                 """);
 
         getServer().getPluginManager().registerEvents(this, this);
+
+        FileConfiguration config = getConfig();
+        String debugMode = config.getString("debugMode");
+        if (debugMode.contains("true")){
+            OmniLog.Debug(getServer().getConsoleSender(), "Debug Mode is enabled!");
+            OmniLog.Debug(getServer().getConsoleSender(), "Plugin version: " + getDescription().getVersion());
+        }
     }
 }
