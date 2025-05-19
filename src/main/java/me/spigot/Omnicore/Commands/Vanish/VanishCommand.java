@@ -11,32 +11,35 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class VanishCommand extends OmniCommand {
 
-    private JavaPlugin plugin;
+    private final JavaPlugin plugin;
 
     public VanishCommand(JavaPlugin plugin, String commandName, String description) { super(plugin, commandName, description); this.plugin = plugin; }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
         if (!sender.hasPermission("omnicore.vanish")) {
 
             sender.sendMessage(ChatColor.DARK_RED + "Non hai i permessi necessari per eseguire questo comando.");
             return false;
         }
 
-        if (args.length != 1) {
-            OmniLog.Error(sender, "Syntax Error! use /vanish <PlayerName>.");
-            return true;
-        }
-
-        Player target = Bukkit.getPlayerExact(args[0]);
-        if (target == null) {
-            OmniLog.Error(sender, "Giocatore non trovato o invalido.");
+        Player target;
+        if (args.length == 0) {
+            target = (Player) sender;
+        } else if (args.length == 1) {
+            target = Bukkit.getPlayerExact(args[0]);
+            if (target == null) {
+                OmniLog.Error(sender, "Giocatore non trovato o invalido.");
+                return true;
+            }
+        }else{
+            sender.sendMessage(ChatColor.DARK_RED + "Syntax Error! use /vanish <PlayerName>.");
             return true;
         }
 
         boolean isVanished = target.isInvisible();
         target.setInvisible(!isVanished);
-
         if (!isVanished){
             if (target != sender){
                 OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " è ora invisibile.");

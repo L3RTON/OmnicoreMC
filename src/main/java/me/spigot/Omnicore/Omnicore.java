@@ -1,6 +1,7 @@
 package me.spigot.Omnicore;
 
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
+import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,6 +18,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             //getCommand("omnicore").setExecutor(this);
             getCommand("vanish").setExecutor(new VanishCommand(this, "vanish", "Rende il player invisibile."));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
+            getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita il fly."));
 
             saveDefaultConfig();
         } catch (Exception e) {

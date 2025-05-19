@@ -7,9 +7,21 @@ commands:
   vanish:
     description: "Rende il player invisibile."
     usage: /vanish <PlayerName>
-    permission: op
+    permission: omnicore.vanish
     default: true
   omnihelp:
     description: "Mostra i comandi del plugin"
     usage: /omnihelp
     default: true
+  fly:
+    description: "Permette al player di volare in survival"
+    usage: /fly <PlayerName>
+    permission: omnicore.fly
+    default: true
+  permissions:
+    omnicore.vanish:
+      description: "Permette al giocatore di usare il comando /vanish"
+      default: op
+    omnicore.fly:
+      description: "Permette al giocatore di usare il comando /fly"
+      default: op
