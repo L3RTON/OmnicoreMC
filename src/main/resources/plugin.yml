@@ -23,6 +23,11 @@ commands:
     usage: /god <PlayerName>
     permission: omnicore.god
     default: true
+  menu:
+    description: "Permette al player di aprire il menu"
+    usage: /menu
+    permission: omnicore.menu
+    default: true
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
@@ -32,5 +37,8 @@ commands:
       default: op
     omnicore.god:
       description: "Permette al player di usare il comando /god"
+      default: op
+    omnicore.menu:
+      description: "Permette al player di usare il comando /menu"
       default: op
 

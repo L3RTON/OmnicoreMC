@@ -5,6 +5,8 @@ import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeListener;
 import me.spigot.Omnicore.Commands.Help.HelpCommand;
+import me.spigot.Omnicore.Commands.Menu.MenuCommand;
+import me.spigot.Omnicore.Commands.Menu.MenuListener;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -21,9 +23,11 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("vanish").setExecutor(new VanishCommand(this, "vanish", "Abilita o disabilita la vanish."));
             getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita la fly."));
             getCommand("god").setExecutor(new GodmodeCommand(this, "god", "Abilita o disabilita la godmode."));
+            getCommand("menu").setExecutor(new MenuCommand(this, "omni", "Apre la pagina del menu."));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             //Listeners//
+            getServer().getPluginManager().registerEvents(new MenuListener(), this);
             getServer().getPluginManager().registerEvents(new GodmodeListener(), this);
             getServer().getPluginManager().registerEvents(this, this);
             //Config Save//
