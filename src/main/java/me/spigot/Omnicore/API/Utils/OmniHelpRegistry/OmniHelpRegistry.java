@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class OmniHelpRegistry {
-
     private static final Map<String, String> commandHelpMap = new LinkedHashMap<>();
 
     public static void register(String command, String description) {

@@ -12,7 +12,7 @@ public class OmniLog {
         sender.sendMessage(finalMessage);
     }
 
-    public static void LogException(String message, Exception e){
+    public static void Exception(String message, Exception e){
         String prefix = ChatColor.DARK_RED + "[OmniException] ";
         String finalMessage = prefix + message;
         Bukkit.getConsoleSender().sendMessage(finalMessage);

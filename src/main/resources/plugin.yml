@@ -18,10 +18,19 @@ commands:
     usage: /fly <PlayerName>
     permission: omnicore.fly
     default: true
+  god:
+    description: "Permette al player di diventare immuni al danno"
+    usage: /god <PlayerName>
+    permission: omnicore.god
+    default: true
   permissions:
     omnicore.vanish:
-      description: "Permette al giocatore di usare il comando /vanish"
+      description: "Permette al player di usare il comando /vanish"
       default: op
     omnicore.fly:
-      description: "Permette al giocatore di usare il comando /fly"
+      description: "Permette al player di usare il comando /fly"
       default: op
+    omnicore.god:
+      description: "Permette al player di usare il comando /god"
+      default: op
+

@@ -20,7 +20,7 @@ public class VanishCommand extends OmniCommand {
 
         if (!sender.hasPermission("omnicore.vanish")) {
 
-            sender.sendMessage(ChatColor.DARK_RED + "Non hai i permessi necessari per eseguire questo comando.");
+            OmniLog.Error(sender, "Non hai i permessi necessari per usare questo comando.");
             return false;
         }
 
@@ -34,7 +34,7 @@ public class VanishCommand extends OmniCommand {
                 return true;
             }
         }else{
-            sender.sendMessage(ChatColor.DARK_RED + "Syntax Error! use /vanish <PlayerName>.");
+            OmniLog.Error(sender, "Syntax Error! use /vanish <PlayerName>.");
             return true;
         }
 
@@ -48,7 +48,7 @@ public class VanishCommand extends OmniCommand {
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            sender.sendMessage(ChatColor.GREEN + "Ora sei invisibile.");
+            OmniLog.Info(sender, "Hai attivato la vanish!");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.hidePlayer(plugin, target);
@@ -61,7 +61,7 @@ public class VanishCommand extends OmniCommand {
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            sender.sendMessage(ChatColor.RED + "Sei tornato visibile!");
+            OmniLog.Info(sender, "Hai disattivato la vanish!");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.showPlayer(plugin, target);
