@@ -20,6 +20,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
             getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita il fly."));
 
+            getServer().getPluginManager().registerEvents(this, this);
             saveDefaultConfig();
         } catch (Exception e) {
             OmniLog.LogException("Omnicore ha riscontrato un errore e non è riuscito ad avviarsi!", e);
@@ -36,8 +37,6 @@ public class Omnicore extends JavaPlugin implements Listener {
                  
                             Omnicore è stato caricato con successo!
                 """);
-
-        getServer().getPluginManager().registerEvents(this, this);
 
         FileConfiguration config = getConfig();
         String debugMode = config.getString("debugMode");
