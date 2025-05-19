@@ -1,6 +1,6 @@
 name: Omnicore
 version: '0.1.0'
-main: me.spigot.Omnicore.Omnicore
+main: me.spigot.omnicore.Omnicore
 api-version: '1.21.4'
 depend: [ ProtocolLib ]
 commands:
