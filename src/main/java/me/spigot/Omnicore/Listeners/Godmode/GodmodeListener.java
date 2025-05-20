@@ -1,5 +1,6 @@
-package me.spigot.Omnicore.Commands.Godmode;
+package me.spigot.Omnicore.Listeners.Godmode;
 
+import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

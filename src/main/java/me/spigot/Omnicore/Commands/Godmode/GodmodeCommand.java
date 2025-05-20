@@ -1,6 +1,7 @@
 package me.spigot.Omnicore.Commands.Godmode;
 
 import me.spigot.Omnicore.API.Interface.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -70,6 +71,7 @@ public class GodmodeCommand extends OmniCommand {
             OmniLog.Info(target, "La godmode è stata " + (newState ? "attivata" : "disattivata") + " da " + ChatColor.GRAY + player.getName());
         }
 
+        StatusRegistry.setStatus(target, "Godmode", newState);
         return true;
     }
 }

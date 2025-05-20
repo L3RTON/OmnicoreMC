@@ -1,6 +1,7 @@
 package me.spigot.Omnicore.Commands.Fly;
 
 import me.spigot.Omnicore.API.Interface.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -65,6 +66,7 @@ public class FlyCommand extends OmniCommand {
             OmniLog.Info(sender, "Hai disattivato la fly.");
         }
 
+        StatusRegistry.setStatus(target, "Fly", enabled);
         return true;
     }
 }

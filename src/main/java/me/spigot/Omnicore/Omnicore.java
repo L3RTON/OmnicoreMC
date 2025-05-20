@@ -1,15 +1,16 @@
 package me.spigot.Omnicore;
 
+import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
+import me.spigot.Omnicore.API.Tasks.Status.StatusActionBarTask;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
-import me.spigot.Omnicore.Commands.Godmode.GodmodeListener;
+import me.spigot.Omnicore.Listeners.Godmode.GodmodeListener;
 import me.spigot.Omnicore.Commands.Heal.HealCommand;
 import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuCommand;
-import me.spigot.Omnicore.Commands.Menu.MenuListener;
+import me.spigot.Omnicore.Listeners.Menu.MenuListener;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -33,8 +34,12 @@ public class Omnicore extends JavaPlugin implements Listener {
             getServer().getPluginManager().registerEvents(new MenuListener(), this);
             getServer().getPluginManager().registerEvents(new GodmodeListener(), this);
             getServer().getPluginManager().registerEvents(this, this);
+
             //Config Save//
             saveDefaultConfig();
+
+            //StatusBar Init//
+            new StatusActionBarTask().runTaskTimer(this, 0L, 20L);
         } catch (Exception e) {
             OmniLog.Exception("Omnicore ha riscontrato un errore e non è riuscito ad avviarsi!", e);
             getServer().getPluginManager().disablePlugin(this);
@@ -52,8 +57,7 @@ public class Omnicore extends JavaPlugin implements Listener {
                             Omnicore è stato caricato con successo!
                 """);
 
-        FileConfiguration config = getConfig();
-        String debugMode = config.getString("debugMode");
+        String debugMode = getConfig().getString("debugMode");
         if (debugMode.contains("true")){
             OmniLog.Debug(getServer().getConsoleSender(), "Debug Mode is enabled!");
             OmniLog.Debug(getServer().getConsoleSender(), "Plugin version: " + getDescription().getVersion());

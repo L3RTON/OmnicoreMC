@@ -1,4 +1,4 @@
-package me.spigot.Omnicore.Commands.Menu;
+package me.spigot.Omnicore.Listeners.Menu;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Instrument;
