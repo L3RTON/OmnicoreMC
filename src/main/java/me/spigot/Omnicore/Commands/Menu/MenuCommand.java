@@ -25,11 +25,27 @@ public class MenuCommand extends OmniCommand {
 
         Inventory menu = Bukkit.createInventory(null, 45, ChatColor.BLUE + "Menu");
 
+
+        //Creazione degli items//
+        ItemStack flyItem = new ItemStack(org.bukkit.Material.FEATHER);
+        ItemMeta flyMeta = flyItem.getItemMeta();
+        flyMeta.setDisplayName(ChatColor.GRAY + "Fly");
+        flyItem.setItemMeta(flyMeta);
+
         ItemStack godItem = new ItemStack(org.bukkit.Material.TOTEM_OF_UNDYING);
-        ItemMeta meta = godItem.getItemMeta();
-        meta.setDisplayName(ChatColor.GOLD + "Godmode");
-        godItem.setItemMeta(meta);
+        ItemMeta godMeta = godItem.getItemMeta();
+        godMeta.setDisplayName(ChatColor.GOLD + "Godmode");
+        godItem.setItemMeta(godMeta);
+
+        ItemStack healItem = new ItemStack(org.bukkit.Material.APPLE);
+        ItemMeta healMeta = healItem.getItemMeta();
+        healMeta.setDisplayName(ChatColor.RED + "Heal");
+        healItem.setItemMeta(healMeta);
+
+        //Assegnazione degli items//
+        menu.setItem(20, flyItem);
         menu.setItem(22, godItem);
+        menu.setItem(24, healItem);
 
         player.openInventory(menu);
         return true;
