@@ -6,22 +6,28 @@ depend: [ ProtocolLib ]
 commands:
   vanish:
     description: "Rende il player invisibile."
-    usage: /vanish <PlayerName>
+    usage: /vanish [PlayerName]
     permission: omnicore.vanish
     default: true
   omnihelp:
     description: "Mostra i comandi del plugin"
     usage: /omnihelp
+    permission: omnicore.help
     default: true
   fly:
     description: "Permette al player di volare in survival"
-    usage: /fly <PlayerName>
+    usage: /fly [PlayerName]
     permission: omnicore.fly
     default: true
   god:
     description: "Permette al player di diventare immuni al danno"
-    usage: /god <PlayerName>
+    usage: /god [PlayerName]
     permission: omnicore.god
+    default: true
+  heal:
+    description: "Permette al player di ripristinare la salute e la fame"
+    usage: /heal [PlayerName]
+    permission: omnicore.heal
     default: true
   permissions:
     omnicore.vanish:
@@ -30,7 +36,13 @@ commands:
     omnicore.fly:
       description: "Permette al player di usare il comando /fly"
       default: op
+    omnicore.help:
+      description: "Permette ai player di usare il comando /omnihelp"
+      default: op
     omnicore.god:
       description: "Permette al player di usare il comando /god"
+      default: op
+    omnicore.heal:
+      description: "Permette al player di usare il comando /heal"
       default: op
 
