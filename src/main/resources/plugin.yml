@@ -29,11 +29,6 @@ commands:
     usage: /heal [PlayerName]
     permission: omnicore.heal
     default: true
-  heal:
-    description: "Permette al player di ripristinare la salute e la fame"
-    usage: /heal [PlayerName]
-    permission: omnicore.heal
-    default: true
   menu:
     description: "Permette al player di aprire il menu"
     usage: /menu
@@ -57,8 +52,5 @@ commands:
       default: op
     omnicore.menu:
       description: "Permette al player di usare il comando /menu"
-      default: op
-    omnicore.heal:
-      description: "Permette al player di usare il comando /heal"
       default: op
 
