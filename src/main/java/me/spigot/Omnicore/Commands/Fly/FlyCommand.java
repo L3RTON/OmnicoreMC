@@ -41,7 +41,7 @@ public class FlyCommand extends OmniCommand {
                 return true;
             }
         }else{
-            OmniLog.Error(sender, "Syntax Error! use /fly <PlayerName>.");
+            OmniLog.Error(sender, "Syntax Error! use /fly [PlayerName].");
             return true;
         }
 

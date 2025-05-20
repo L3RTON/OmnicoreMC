@@ -56,7 +56,7 @@ public class GodmodeCommand extends OmniCommand {
                 return true;
             }
         } else {
-            OmniLog.Error(sender, "Syntax Error! use /godmode <PlayerName>.");
+            OmniLog.Error(sender, "Syntax Error! use /godmode [PlayerName].");
             return true;
         }
 
