@@ -23,13 +23,13 @@ public class MenuCommand extends OmniCommand {
             return true;
         }
 
-        Inventory menu = Bukkit.createInventory(null, 54, ChatColor.BLUE + "Menu");
+        Inventory menu = Bukkit.createInventory(null, 45, ChatColor.BLUE + "Menu");
 
         ItemStack godItem = new ItemStack(org.bukkit.Material.TOTEM_OF_UNDYING);
         ItemMeta meta = godItem.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Godmode");
         godItem.setItemMeta(meta);
-        menu.setItem(0, godItem);
+        menu.setItem(22, godItem);
 
         player.openInventory(menu);
         return true;
