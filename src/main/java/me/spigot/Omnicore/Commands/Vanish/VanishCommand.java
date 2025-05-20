@@ -10,16 +10,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class VanishCommand extends OmniCommand {
-
-    private final JavaPlugin plugin;
-
-    public VanishCommand(JavaPlugin plugin, String commandName, String description) { super(plugin, commandName, description); this.plugin = plugin; }
+    public VanishCommand(JavaPlugin plugin, String commandName, String description) {
+        super(plugin, commandName, description); this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("omnicore.vanish")) {
-
             OmniLog.Error(sender, "Non hai i permessi necessari per usare questo comando.");
             return false;
         }
@@ -34,7 +32,7 @@ public class VanishCommand extends OmniCommand {
                 return true;
             }
         }else{
-            OmniLog.Error(sender, "Syntax Error! use /vanish <PlayerName>.");
+            OmniLog.Error(sender, "Syntax Error! use /vanish [PlayerName].");
             return true;
         }
 

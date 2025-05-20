@@ -4,6 +4,7 @@ import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeListener;
+import me.spigot.Omnicore.Commands.Heal.HealCommand;
 import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuListener;
@@ -24,6 +25,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita la fly."));
             getCommand("god").setExecutor(new GodmodeCommand(this, "god", "Abilita o disabilita la godmode."));
             getCommand("menu").setExecutor(new MenuCommand(this, "menu", "Apre la pagina del menu."));
+            getCommand("heal").setExecutor(new HealCommand(this, "heal", "Ripristina la salute e la fame."));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             //Listeners//
