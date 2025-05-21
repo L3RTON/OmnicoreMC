@@ -1,6 +1,6 @@
-package me.spigot.Omnicore.API.Interface.OmniCommand;
+package me.spigot.Omnicore.API.Interfaces.OmniCommand;
 
-import me.spigot.Omnicore.API.Utils.OmniHelpRegistry.OmniHelpRegistry;
+import me.spigot.Omnicore.API.Registres.OmniHelp.OmniHelpRegistry;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

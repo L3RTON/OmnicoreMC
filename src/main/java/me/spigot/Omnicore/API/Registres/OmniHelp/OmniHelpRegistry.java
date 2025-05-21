@@ -1,4 +1,4 @@
-package me.spigot.Omnicore.API.Utils.OmniHelpRegistry;
+package me.spigot.Omnicore.API.Registres.OmniHelp;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

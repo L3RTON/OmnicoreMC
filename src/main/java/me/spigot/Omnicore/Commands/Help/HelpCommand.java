@@ -1,7 +1,7 @@
 package me.spigot.Omnicore.Commands.Help;
 
-import me.spigot.Omnicore.API.Interface.OmniCommand.OmniCommand;
-import me.spigot.Omnicore.API.Utils.OmniHelpRegistry.OmniHelpRegistry;
+import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Registres.OmniHelp.OmniHelpRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

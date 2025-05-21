@@ -1,6 +1,5 @@
 package me.spigot.Omnicore;
 
-import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Tasks.Status.StatusActionBarTask;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
