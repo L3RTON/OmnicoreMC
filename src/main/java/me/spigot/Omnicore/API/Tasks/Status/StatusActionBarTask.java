@@ -34,7 +34,7 @@ public class StatusActionBarTask extends BukkitRunnable {
             }
 
             if (!hasValidStatus) {
-                // Se non ci sono status validi, non mostra nulla nella status bar
+                //Se non ci sono status validi non mostra nulla nella status bar//
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(""));
                 continue;
             }
