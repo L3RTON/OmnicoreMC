@@ -23,6 +23,11 @@ public class MenuCommand extends OmniCommand {
             return true;
         }
 
+        if (args.length != 0) {
+            OmniLog.Error(sender, "Syntax Error! use /menu.");
+            return true;
+        }
+
         Inventory menu = Bukkit.createInventory(null, 45, ChatColor.BLUE + "Menu");
 
 

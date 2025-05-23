@@ -32,6 +32,8 @@ public class HealCommand extends OmniCommand {
             return true;
         }
 
+
+
         Player target;
         if (args.length == 0) {
             target = (Player) sender;
@@ -46,10 +48,19 @@ public class HealCommand extends OmniCommand {
             return true;
         }
 
-        player.setHealth(player.getMaxHealth());
-        player.setFoodLevel(20);
-        player.setSaturation(20f);
-        OmniLog.Info(sender, "Hai ripristinato la salute e la fame.");
+        if (target != sender){
+            target.setHealth(20);
+            target.setFoodLevel(20);
+            target.setSaturation(20f);
+            OmniLog.Status(sender, "Hai ripristinato la salute e la fame di " + target.getName() + ".");
+        }
+        else{
+            target.setHealth(20);
+            target.setFoodLevel(20);
+            target.setSaturation(20f);
+            OmniLog.Status(sender, "Hai ripristinato la salute e la fame.");
+        }
+
 
         return true;
     }

@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class VanishCommand extends OmniCommand {
+
     public VanishCommand(JavaPlugin plugin, String commandName, String description) {
         super(plugin, commandName, description); this.plugin = plugin;
     }
@@ -19,8 +20,8 @@ public class VanishCommand extends OmniCommand {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("omnicore.vanish")) {
-            OmniLog.Error(sender, "Non hai i permessi necessari per usare questo comando.");
-            return false;
+            OmniLog.Error(sender, "Non hai i permessi per usare questo comando.");
+            return true;
         }
 
         Player target;
@@ -41,26 +42,26 @@ public class VanishCommand extends OmniCommand {
         target.setInvisible(!isVanished);
         if (!isVanished){
             if (target != sender){
-                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " è ora invisibile.");
+                OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " è ora invisibile.");
 
                 for (Player p : Bukkit.getOnlinePlayers())
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            OmniLog.Info(sender, "Hai attivato la vanish!");
+            OmniLog.Status(sender, "Hai attivato la vanish!");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.hidePlayer(plugin, target);
         }
         else{
             if (target != sender){
-                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.RED + " è ora visibile.");
+                OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.RED + " è ora visibile.");
 
                 for (Player p : Bukkit.getOnlinePlayers())
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            OmniLog.Info(sender, "Hai disattivato la vanish!");
+            OmniLog.Status(sender, "Hai disattivato la vanish!");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.showPlayer(plugin, target);

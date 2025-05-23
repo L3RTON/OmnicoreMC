@@ -11,8 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class FlyCommand extends OmniCommand {
 
-    private final JavaPlugin plugin;
-
     public FlyCommand(JavaPlugin plugin, String commandName, String description) {
         super(plugin, commandName, description);
         this.plugin = plugin;
@@ -23,7 +21,7 @@ public class FlyCommand extends OmniCommand {
 
         Player player = (Player) sender;
         if (!player.hasPermission("omnicore.fly")) {
-            OmniLog.Error(sender, "Non hai i permessi necessari per usare questo comando.");
+            OmniLog.Error(sender, "Non hai i permessi per usare questo comando.");
             return true;
         }
 
@@ -51,19 +49,19 @@ public class FlyCommand extends OmniCommand {
         player.setFlying(enabled);
         if(enabled){
             if (target != sender){
-                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " non ha più la fly attiva");
+                OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " non ha più la fly attiva");
 
                 return true;
             }
-            OmniLog.Info(sender, "Hai attivato la fly.");
+            OmniLog.Status(sender, "Hai attivato la fly.");
         }
         else{
             if (target != sender){
-                OmniLog.Info(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " ha ora la fly");
+                OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " ha ora la fly");
 
                 return true;
             }
-            OmniLog.Info(sender, "Hai disattivato la fly.");
+            OmniLog.Status(sender, "Hai disattivato la fly.");
         }
 
         StatusRegistry.setStatus(target, "Fly", enabled);

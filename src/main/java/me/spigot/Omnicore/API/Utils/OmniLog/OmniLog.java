@@ -30,6 +30,13 @@ public class OmniLog {
         sender.sendMessage(finalMessage);
     }
 
+    public static void Status(CommandSender sender, String message){
+        String prefix = ChatColor.GREEN + "[OmniStatus] ";
+        String finalMessage = prefix + message;
+
+        sender.sendMessage(finalMessage);
+    }
+
     public static void Debug(CommandSender sender, String message){
         String prefix = ChatColor.BLUE + "[OmniDebug] ";
         String finalMessage = prefix + message;

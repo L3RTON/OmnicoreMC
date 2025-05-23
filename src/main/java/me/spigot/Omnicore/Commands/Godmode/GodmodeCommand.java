@@ -65,10 +65,10 @@ public class GodmodeCommand extends OmniCommand {
         setGod(target, newState);
 
         if (target.equals(player)) {
-            OmniLog.Info(sender, (newState ? "Hai attivato" : "Hai disattivato") + " la godmode.");
+            OmniLog.Status(sender, (newState ? "Hai attivato" : "Hai disattivato") + " la godmode.");
         } else {
-            OmniLog.Info(sender, (newState ? "Hai attivato" : "Hai disattivato") + " la godmode per " + ChatColor.GRAY + target.getName());
-            OmniLog.Info(target, "La godmode è stata " + (newState ? "attivata" : "disattivata") + " da " + ChatColor.GRAY + player.getName());
+            OmniLog.Status(sender, (newState ? "Hai attivato" : "Hai disattivato") + " la godmode per " + ChatColor.GRAY + target.getName());
+            OmniLog.Status(target, "La godmode è stata " + (newState ? "attivata" : "disattivata") + " da " + ChatColor.GRAY + player.getName());
         }
 
         StatusRegistry.setStatus(target, "Godmode", newState);

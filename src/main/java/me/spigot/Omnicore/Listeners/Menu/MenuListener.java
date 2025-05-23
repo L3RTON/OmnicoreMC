@@ -11,12 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashSet;
-import java.util.UUID;
-
 public class MenuListener implements Listener {
-
-    private static final HashSet<UUID> godmodePlayers = new HashSet<>();
 
     @EventHandler
     public void onMenuOpen(InventoryClickEvent ev) {
@@ -25,7 +20,7 @@ public class MenuListener implements Listener {
         if (!(ev.getWhoClicked() instanceof Player player))
             return;
 
-        if (!(ev.getView().getTitle().equals(ChatColor.BLUE + "Menu")))
+        if (ev.getView().getTitle().equals(ChatColor.BLUE + "Menu"))
             ev.setCancelled(true);
 
 
