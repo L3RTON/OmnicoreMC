@@ -1,5 +1,6 @@
 package me.spigot.Omnicore;
 
+import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Tasks.Status.StatusActionBarTask;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
@@ -11,7 +12,10 @@ import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuCommand;
 import me.spigot.Omnicore.Listeners.Menu.MenuListener;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Omnicore extends JavaPlugin implements Listener {
@@ -63,5 +67,13 @@ public class Omnicore extends JavaPlugin implements Listener {
             OmniLog.Debug(getServer().getConsoleSender(), "Debug Mode is enabled!");
             OmniLog.Debug(getServer().getConsoleSender(), "Plugin version: " + getDescription().getVersion());
         }
+    }
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent ev){
+        Player player = ev.getPlayer();
+        StatusRegistry.clear(player);
+
+        if (getConfig().getBoolean("debugMode"))
+            OmniLog.Debug(ev.getPlayer(), "StatusBar resettata.");
     }
 }

@@ -39,7 +39,7 @@ public class PingCommand extends OmniCommand {
 
 
         if (target != sender){
-            OmniLog.Info(sender, "Pong! Il player ha " + player.getPing() + " ms");
+            OmniLog.Info(sender, "Pong! Il player ha " + target.getPing() + " ms");
             return true;
         }
 
@@ -47,7 +47,7 @@ public class PingCommand extends OmniCommand {
             OmniLog.Info(sender, "Pong! " + ChatColor.GREEN + player.getPing() + "ms");
             return true;
         }
-        else if (player.getPing() <= 130){
+        else if (player.getPing() <= 260){
             OmniLog.Info(sender, "Pong! " + ChatColor.GOLD + player.getPing() + "ms");
             return true;
         }

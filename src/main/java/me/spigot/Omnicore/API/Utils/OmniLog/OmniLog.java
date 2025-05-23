@@ -35,6 +35,6 @@ public class OmniLog {
         String finalMessage = prefix + message;
 
 
-        Bukkit.getConsoleSender().sendMessage(finalMessage);
+        sender.sendMessage(finalMessage);
     }
 }
