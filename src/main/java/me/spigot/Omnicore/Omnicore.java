@@ -5,6 +5,7 @@ import me.spigot.Omnicore.API.Tasks.Status.StatusActionBarTask;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
+import me.spigot.Omnicore.Commands.Hat.HatCommand;
 import me.spigot.Omnicore.Commands.Invsee.InvseeCommand;
 import me.spigot.Omnicore.Commands.Ping.PingCommand;
 import me.spigot.Omnicore.Listeners.Godmode.GodmodeListener;
@@ -35,6 +36,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("heal").setExecutor(new HealCommand(this, "heal", "Ripristina la salute e la fame."));
             getCommand("ping").setExecutor(new PingCommand(this, "ping", "Mostra il ping del giocatore."));
             getCommand("invsee").setExecutor(new InvseeCommand(this, "invsee", "Apre l'inventario di un giocatore."));
+            getCommand("hat").setExecutor(new HatCommand(this, "hat", "Permette al giocatore di mettere un item come cappello."));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             //Listeners//

@@ -7,35 +7,30 @@ commands:
   vanish:
     description: "Rende il player invisibile."
     usage: /vanish [PlayerName]
-    default: true
   omnihelp:
     description: "Mostra i comandi del plugin."
     usage: /omnihelp
-    default: true
   fly:
     description: "Permette al player di volare in survival."
     usage: /fly [PlayerName]
-    default: true
   god:
     description: "Permette al player di diventare immuni al danno."
     usage: /god [PlayerName]
-    default: true
   heal:
     description: "Permette al player di ripristinare la salute e la fame."
     usage: /heal [PlayerName]
-    default: true
   menu:
     description: "Permette al player di aprire il menu."
     usage: /menu
-    default: true
   ping:
     description: "Permette al player di sapere il proprio ping."
     usage: /ping
-    default: true
   invsee:
     description: "Permette al player di visualizzare l'inventario di un giocatore."
     usage: /invsee <PlayerName>
-    default: true
+  hat:
+    description: "Permette al player di mettere un item come cappello."
+    usage: /hat
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
