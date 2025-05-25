@@ -20,37 +20,37 @@ public class MenuListener implements Listener {
         if (!(ev.getWhoClicked() instanceof Player player))
             return;
 
-        if (ev.getView().getTitle().equals(ChatColor.BLUE + "Menu"))
+        if (ev.getView().getTitle().equals(ChatColor.BLUE + "Menu")){
             ev.setCancelled(true);
 
+            ItemStack clickedItem = ev.getCurrentItem();
+            Material god = Material.TOTEM_OF_UNDYING;
+            Material fly = Material.FEATHER;
+            Material heal = Material.APPLE;
 
-        ItemStack clickedItem = ev.getCurrentItem();
-        Material god = Material.TOTEM_OF_UNDYING;
-        Material fly = Material.FEATHER;
-        Material heal = Material.APPLE;
+            if (clickedItem == null || clickedItem.getType() == Material.AIR)
+                return;
 
-        if (clickedItem == null || clickedItem.getType() == Material.AIR)
-            return;
+            if (clickedItem.getType() == god){
+                player.performCommand("god");
+                player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(1, Note.Tone.C));
 
-        if (clickedItem.getType() == god){
-            player.performCommand("god");
-            player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(0, Note.Tone.C));
+                player.closeInventory();
+            }
 
-            player.closeInventory();
-        }
+            if (clickedItem.getType() == fly){
+                player.performCommand("fly");
+                player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(1, Note.Tone.C));
 
-        if (clickedItem.getType() == fly){
-            player.performCommand("fly");
-            player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(0, Note.Tone.C));
+                player.closeInventory();
+            }
 
-            player.closeInventory();
-        }
+            if (clickedItem.getType() == heal){
+                player.performCommand("heal");
+                player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(1, Note.Tone.C));
 
-        if (clickedItem.getType() == heal){
-            player.performCommand("heal");
-            player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(1, Note.Tone.C));
-
-            player.closeInventory();
+                player.closeInventory();
+            }
         }
     }
 }

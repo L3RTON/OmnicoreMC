@@ -12,8 +12,9 @@ import java.util.Map;
 
 public class HelpCommand extends OmniCommand {
 
-
-    public HelpCommand(JavaPlugin plugin, String commandName, String description) { super(plugin, commandName, description); }
+    public HelpCommand(JavaPlugin plugin, String commandName, String description) {
+        super(plugin, commandName, description);
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

@@ -20,6 +20,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.isGod;
+import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.setGod;
+
 public class Omnicore extends JavaPlugin implements Listener {
 
     @Override
@@ -75,9 +78,25 @@ public class Omnicore extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent ev){
         Player player = ev.getPlayer();
+
         StatusRegistry.clear(player);
 
-        if (getConfig().getBoolean("debugMode"))
+        if (getConfig().getBoolean("debugMode", true)){
+            if (player.isInvisible()){
+                OmniLog.Debug(getServer().getConsoleSender(), "Vanish set to false for " + player.getName());
+            }
+            if (isGod(player)){
+                OmniLog.Debug(getServer().getConsoleSender(), "Godmode set to false for " + player.getName());
+            }
+
             OmniLog.Debug(ev.getPlayer(), "StatusBar resettata.");
+        }
+
+        if (player.isInvisible()){
+            player.setInvisible(false);
+        }
+        if (isGod(player)){
+            setGod(player, false);
+        }
     }
 }

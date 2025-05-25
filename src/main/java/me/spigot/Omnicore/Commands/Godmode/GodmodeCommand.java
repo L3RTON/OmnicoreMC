@@ -5,9 +5,12 @@ import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;
@@ -58,6 +61,11 @@ public class GodmodeCommand extends OmniCommand {
             }
         } else {
             OmniLog.Error(sender, "Syntax Error! use /godmode [PlayerName].");
+            return true;
+        }
+
+        if (target.getGameMode() != GameMode.SURVIVAL) {
+            OmniLog.Error(sender, "Puoi usare questo comando solo in modalità survival.");
             return true;
         }
 

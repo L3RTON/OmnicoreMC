@@ -27,13 +27,6 @@ public class HealCommand extends OmniCommand {
             return true;
         }
 
-        if (player.getGameMode() != GameMode.SURVIVAL) {
-            OmniLog.Error(sender, "Puoi usare questo comando solo in modalità survival.");
-            return true;
-        }
-
-
-
         Player target;
         if (args.length == 0) {
             target = (Player) sender;
@@ -48,11 +41,22 @@ public class HealCommand extends OmniCommand {
             return true;
         }
 
+        if (target.isDead()) {
+            OmniLog.Error(sender, "Non puoi usare questo comando quando il player è morto.");
+            return true;
+        }
+
+        if (target.getGameMode() != GameMode.SURVIVAL) {
+            OmniLog.Error(sender, "Puoi usare questo comando solo in modalità survival.");
+            return true;
+        }
+
         if (target != sender){
             target.setHealth(20);
             target.setFoodLevel(20);
             target.setSaturation(20f);
             OmniLog.Status(sender, "Hai ripristinato la salute e la fame di " + target.getName() + ".");
+            OmniLog.Status(target, sender.getName() + " ti ha ripristinato la salute e la fame.");
         }
         else{
             target.setHealth(20);
