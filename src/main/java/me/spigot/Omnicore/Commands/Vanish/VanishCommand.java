@@ -48,7 +48,7 @@ public class VanishCommand extends OmniCommand {
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            OmniLog.Status(sender, "Hai attivato la vanish!");
+            OmniLog.Status(sender, "Hai attivato la vanish.");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.hidePlayer(plugin, target);
@@ -61,7 +61,7 @@ public class VanishCommand extends OmniCommand {
                     p.hidePlayer(plugin, target);
                 return true;
             }
-            OmniLog.Status(sender, "Hai disattivato la vanish!");
+            OmniLog.Status(sender, "Hai disattivato la vanish.");
 
             for (Player p : Bukkit.getOnlinePlayers())
                 p.showPlayer(plugin, target);

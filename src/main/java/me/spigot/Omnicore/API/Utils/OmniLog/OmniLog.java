@@ -4,16 +4,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class OmniLog {
+public class OmniLog{
     public static void Error(CommandSender sender, String message){
-        String prefix = ChatColor.DARK_RED + "[OmniError] ";
+        String prefix = ChatColor.DARK_RED + "[OmniError✖] " ;
         String finalMessage = prefix + message;
 
         sender.sendMessage(finalMessage);
     }
 
     public static void Exception(String message, Exception e){
-        String prefix = ChatColor.DARK_RED + "[OmniException] ";
+        String prefix = ChatColor.DARK_RED + "[OmniException‼] ";
         String finalMessage = prefix + message;
         Bukkit.getConsoleSender().sendMessage(finalMessage);
 
@@ -24,23 +24,22 @@ public class OmniLog {
     }
 
     public static void Info(CommandSender sender, String message){
-        String prefix = ChatColor.YELLOW + "[OmniInfo] ";
+        String prefix = ChatColor.YELLOW + "[OmniInfo⌚] ";
         String finalMessage = prefix + message;
 
         sender.sendMessage(finalMessage);
     }
 
     public static void Status(CommandSender sender, String message){
-        String prefix = ChatColor.GREEN + "[OmniStatus] ";
+        String prefix = ChatColor.GREEN + "[OmniStatus✔] ";
         String finalMessage = prefix + message;
 
         sender.sendMessage(finalMessage);
     }
 
     public static void Debug(CommandSender sender, String message){
-        String prefix = ChatColor.BLUE + "[OmniDebug] ";
+        String prefix = ChatColor.BLUE + "[OmniDebug☕] ";
         String finalMessage = prefix + message;
-
 
         Bukkit.getConsoleSender().sendMessage(finalMessage);
     }
