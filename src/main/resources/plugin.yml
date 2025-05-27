@@ -31,6 +31,10 @@ commands:
   hat:
     description: "Permette al player di mettere un item come cappello."
     usage: /hat
+  staffchat:
+    description: "Permette al player di comunicare in chat staff."
+    usage: /staffchat <Message>
+    aliases: [ sc ]
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
@@ -52,6 +56,9 @@ commands:
       default: op
     omnicore.invsee:
       description: "Permette al player di usare il comando /invsee"
+      default: op
+    omnicore.staffchat:
+      description: "Permette al player di usare la chat staff"
       default: op
 
 
