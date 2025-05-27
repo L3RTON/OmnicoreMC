@@ -35,6 +35,9 @@ commands:
     description: "Permette al player di comunicare in chat staff."
     usage: /staffchat <Message>
     aliases: [ sc ]
+  dice:
+    description: "Lancia un dado e sceglie un numero da 1 a 100"
+    usage: /dice
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"

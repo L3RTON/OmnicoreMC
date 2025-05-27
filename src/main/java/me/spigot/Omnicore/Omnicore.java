@@ -3,6 +3,7 @@ package me.spigot.Omnicore;
 import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Tasks.Status.StatusActionBarTask;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
+import me.spigot.Omnicore.Commands.Dice.DiceCommand;
 import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import me.spigot.Omnicore.Commands.Hat.HatCommand;
@@ -37,11 +38,11 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("god").setExecutor(new GodmodeCommand(this, "god", "Abilita o disabilita la godmode."));
             getCommand("menu").setExecutor(new MenuCommand(this, "menu", "Apre la pagina del menu."));
             getCommand("heal").setExecutor(new HealCommand(this, "heal", "Ripristina la salute e la fame."));
-            getCommand("heal").setExecutor(new HealCommand(this, "heal", "Ripristina la salute e la fame."));
             getCommand("ping").setExecutor(new PingCommand(this, "ping", "Mostra il ping del giocatore."));
             getCommand("invsee").setExecutor(new InvseeCommand(this, "invsee", "Apre l'inventario di un giocatore."));
             getCommand("hat").setExecutor(new HatCommand(this, "hat", "Permette al giocatore di mettere un item come cappello."));
             getCommand("staffchat").setExecutor(new StaffchatCommand(this, "staffchat [/sc]", "Permette di scrivere in una chat per staff."));
+            getCommand("dice").setExecutor(new DiceCommand(this, "dice", "Fa uscire un numero casuale tra 1 e 100."));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             //Listeners//
