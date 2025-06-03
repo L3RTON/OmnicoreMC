@@ -16,9 +16,11 @@ import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuCommand;
 import me.spigot.Omnicore.Listeners.Menu.MenuListener;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -72,10 +74,13 @@ public class Omnicore extends JavaPlugin implements Listener {
                             Omnicore è stato caricato con successo!
                 """);
 
-        String debugMode = getConfig().getString("debugMode");
-        if (debugMode.contains("true")){
+        if (getConfig().getBoolean("debugMode", true)){
             OmniLog.Debug(getServer().getConsoleSender(), "Debug Mode is enabled!");
             OmniLog.Debug(getServer().getConsoleSender(), "Plugin version: " + getDescription().getVersion());
+        }
+
+        if (getConfig().getBoolean("maintenanceMode", true)){
+            OmniLog.Info(getServer().getConsoleSender(), ChatColor.DARK_RED + "! ATTENZIONE ! " + ChatColor.YELLOW + "La maintenance mode è attiva!");
         }
     }
     @EventHandler
@@ -101,5 +106,13 @@ public class Omnicore extends JavaPlugin implements Listener {
         if (isGod(player)){
             setGod(player, false);
         }
+    }
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent ev){
+        if (getConfig().getBoolean("maintenanceMode", true))
+            ev.getPlayer().kickPlayer(ChatColor.YELLOW + "Il server è in manutenzione.");
+
+        if (getConfig().getBoolean("debugMode", true))
+            OmniLog.Debug(getServer().getConsoleSender(), "Player " + ev.getPlayer().getName() + " has been kicked because of maintenance mode");
     }
 }

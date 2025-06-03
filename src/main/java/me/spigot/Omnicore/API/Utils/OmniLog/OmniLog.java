@@ -14,12 +14,14 @@ public class OmniLog{
 
     public static void Exception(String message, Exception e){
         String prefix = ChatColor.DARK_RED + "[OmniException] ";
-        String finalMessage = prefix + message;
-        Bukkit.getConsoleSender().sendMessage("✖ " + finalMessage + " ✖");
 
-        Bukkit.getLogger().severe(e.toString());
+        Bukkit.getConsoleSender().sendMessage(prefix + "❌ " + message + " ❌");
+        Bukkit.getConsoleSender().sendMessage(prefix + "Message: " + e.getMessage());
+        Bukkit.getConsoleSender().sendMessage(prefix + "Caused by: " + e.getCause());
+        Bukkit.getConsoleSender().sendMessage(prefix + "Stacktrace:");
+
         for (StackTraceElement element : e.getStackTrace()) {
-            Bukkit.getLogger().severe("    at " + element.toString());
+            Bukkit.getConsoleSender().sendMessage(prefix + "    at " + element.getClassName() + "." + element.getMethodName() + ChatColor.RED + "(" + element.getFileName() + ":" + element.getLineNumber() + ")");
         }
     }
 
