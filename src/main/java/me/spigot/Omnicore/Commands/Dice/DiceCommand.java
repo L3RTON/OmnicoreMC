@@ -2,12 +2,18 @@ package me.spigot.Omnicore.Commands.Dice;
 
 import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Note;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Random;
+
+import static java.lang.Thread.sleep;
 
 public class DiceCommand extends OmniCommand {
 
@@ -19,13 +25,50 @@ public class DiceCommand extends OmniCommand {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-        if (args.length != 0) {
-            OmniLog.Error(sender, "Syntax Error! use /dice.");
+        if (args.length != 1) {
+            OmniLog.Error(sender, "Syntax Error! Use /dice <Number>.");
             return true;
         }
 
-        int result = random.nextInt(100) + 1;
-        OmniLog.Info(sender, "Hai tirato un dado... " + ChatColor.GREEN + result + "! 🎲");
+        int max;
+        try {
+            max = Integer.parseInt(args[0]);
+            if (max <= 1) {
+                OmniLog.Error(sender, "Inserisci un numero maggiore di 1!");
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            OmniLog.Error(sender, "Syntax Error! Use /dice <Number>.");
+            return true;
+        }
+
+        OmniLog.Info(sender, "Hai tirato il dado...");
+
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
+        }
+        else{
+            OmniLog.Error(sender, "Solo i giocatori possono eseguire questo comando.");
+        }
+
+        int result = random.nextInt(max) + 1;
+        if (result == 69){
+            Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                Player player = (Player) sender;
+                player.playSound(player.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1, -4);
+
+                OmniLog.Info(sender,"" + ChatColor.DARK_PURPLE + result + "...");
+            }, 40L); // 2s
+            return true;
+        }
+
+            Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                Player player = (Player) sender;
+                player.playSound(player.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1, 1);
+
+                OmniLog.Info(sender,"" + ChatColor.GREEN + result + "!");
+            }, 40L); // 2s
 
         return true;
     }

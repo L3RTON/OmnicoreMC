@@ -2,8 +2,7 @@ package me.spigot.Omnicore.Commands.Ping;
 
 import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -37,7 +36,7 @@ public class PingCommand extends OmniCommand {
             return true;
         }
 
-
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
         if (target != sender){
             OmniLog.Info(sender, "Pong! Il player ha " + target.getPing() + " ms");
             return true;
@@ -53,7 +52,6 @@ public class PingCommand extends OmniCommand {
         }
         else{
             OmniLog.Info(sender, "Pong! " + ChatColor.DARK_RED + player.getPing() + "ms");
-
         }
 
         return true;

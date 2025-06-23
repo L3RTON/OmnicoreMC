@@ -4,6 +4,7 @@ import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -51,6 +52,7 @@ public class HealCommand extends OmniCommand {
             return true;
         }
 
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
         if (target != sender){
             target.setHealth(20);
             target.setFoodLevel(20);
@@ -64,7 +66,6 @@ public class HealCommand extends OmniCommand {
             target.setSaturation(20f);
             OmniLog.Status(sender, "Hai ripristinato la salute e la fame.");
         }
-
 
         return true;
     }

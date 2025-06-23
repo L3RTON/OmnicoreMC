@@ -5,6 +5,7 @@ import me.spigot.Omnicore.API.Registres.Status.StatusRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -38,8 +39,10 @@ public class VanishCommand extends OmniCommand {
             return true;
         }
 
+        Player player = (Player) sender;
         boolean isVanished = target.isInvisible();
         target.setInvisible(!isVanished);
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
         if (!isVanished){
             if (target != sender){
                 OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.GREEN + " è ora invisibile.");
