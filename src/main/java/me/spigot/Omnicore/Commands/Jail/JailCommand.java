@@ -107,7 +107,7 @@ public class JailCommand extends OmniCommand {
         }
 
         if (jailedPlayers.containsKey(target.getUniqueId())){
-            OmniLog.Error(sender, "il giocatore è già in stato di jail.");
+            OmniLog.Error(sender, "Il giocatore è già in stato di jail.");
             return true;
         }
 

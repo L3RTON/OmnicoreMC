@@ -25,6 +25,12 @@ public class DiceCommand extends OmniCommand {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+        if (!(sender instanceof Player player)) {
+            OmniLog.Error(sender, "Solo i giocatori possono eseguire questo comando.");
+            return true;
+        }
+
+
         if (args.length != 1) {
             OmniLog.Error(sender, "Syntax Error! Use /dice <Number>.");
             return true;
@@ -43,19 +49,11 @@ public class DiceCommand extends OmniCommand {
         }
 
         OmniLog.Info(sender, "Hai tirato il dado...");
-
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
-        }
-        else{
-            OmniLog.Error(sender, "Solo i giocatori possono eseguire questo comando.");
-        }
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);
 
         int result = random.nextInt(max) + 1;
         if (result == 69){
             Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                Player player = (Player) sender;
                 player.playSound(player.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1, -4);
 
                 OmniLog.Info(sender,"" + ChatColor.DARK_PURPLE + result + "...");
@@ -64,7 +62,6 @@ public class DiceCommand extends OmniCommand {
         }
 
             Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                Player player = (Player) sender;
                 player.playSound(player.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1, 1);
 
                 OmniLog.Info(sender,"" + ChatColor.GREEN + result + "!");

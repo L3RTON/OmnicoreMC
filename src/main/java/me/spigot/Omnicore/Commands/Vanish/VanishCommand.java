@@ -14,11 +14,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class VanishCommand extends OmniCommand {
 
     public VanishCommand(JavaPlugin plugin, String commandName, String description) {
-        super(plugin, commandName, description); this.plugin = plugin;
+        super(plugin, commandName, description);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!(sender instanceof Player player)){
+            OmniLog.Error(sender, "Solo un giocatore può eseguire questo comando.");
+            return true;
+        }
 
         if (!sender.hasPermission("omnicore.vanish")) {
             OmniLog.Error(sender, "Non hai i permessi per usare questo comando.");
@@ -39,7 +43,6 @@ public class VanishCommand extends OmniCommand {
             return true;
         }
 
-        Player player = (Player) sender;
         boolean isVanished = target.isInvisible();
         target.setInvisible(!isVanished);
         player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1, 1);

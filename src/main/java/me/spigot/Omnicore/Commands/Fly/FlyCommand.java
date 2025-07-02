@@ -14,13 +14,15 @@ public class FlyCommand extends OmniCommand {
 
     public FlyCommand(JavaPlugin plugin, String commandName, String description) {
         super(plugin, commandName, description);
-        this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(org.bukkit.command.CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
+        if (!(sender instanceof Player player)){
+            OmniLog.Error(sender, "Solo un giocatore può eseguire questo comando.");
+            return true;
+        }
 
-        Player player = (Player) sender;
         if (!player.hasPermission("omnicore.fly")) {
             OmniLog.Error(sender, "Non hai i permessi per usare questo comando.");
             return true;
