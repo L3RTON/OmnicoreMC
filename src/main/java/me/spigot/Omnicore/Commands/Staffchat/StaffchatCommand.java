@@ -28,7 +28,7 @@ public class StaffchatCommand extends OmniCommand {
         }
 
         String rawMessage = String.join(" ", args);
-        String formattedMessage = ChatColor.DARK_GREEN + "[StaffChat] "
+        String formattedMessage = ChatColor.GRAY + "[" + ChatColor.DARK_GREEN + "StaffChat" + ChatColor.GRAY + "] "
                 + ChatColor.YELLOW + sender.getName() + ChatColor.WHITE + " ➡ " + ChatColor.GRAY  + rawMessage;
 
         for (Player player : Bukkit.getOnlinePlayers()) {

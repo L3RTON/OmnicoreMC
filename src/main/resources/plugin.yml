@@ -1,5 +1,5 @@
 name: Omnicore
-version: '0.1.1'
+version: '0.1.2'
 main: me.spigot.Omnicore.Omnicore
 api-version: '1.21.4'
 depend: [ ProtocolLib ]
@@ -36,8 +36,14 @@ commands:
     usage: /staffchat <Message>
     aliases: [ sc ]
   dice:
-    description: "Lancia un dado e sceglie un numero da 1 a 100"
+    description: "Lancia un dado e sceglie un numero da 1 a 100."
     usage: /dice
+  jail:
+    description: "Mette il player in stato di jail."
+    usage: /jail <PlayerName> <Time>
+  unjail:
+    description: "Fa uscire il player dallo stato di jail"
+    usage: /unjail <PlayerName>
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
@@ -61,7 +67,9 @@ commands:
       description: "Permette al player di usare il comando /invsee"
       default: op
     omnicore.staffchat:
-      description: "Permette al player di usare la chat staff"
+      description: "Permette al player di usare il comando /staffchat"
       default: op
-
+    omnicore.jail:
+      description: "Permette al player di usare il comando /jail"
+      default: op
 

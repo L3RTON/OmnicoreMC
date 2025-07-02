@@ -8,12 +8,16 @@ import me.spigot.Omnicore.Commands.Fly.FlyCommand;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import me.spigot.Omnicore.Commands.Hat.HatCommand;
 import me.spigot.Omnicore.Commands.Invsee.InvseeCommand;
+import me.spigot.Omnicore.Commands.Jail.Helpers.JailData;
+import me.spigot.Omnicore.Commands.Jail.JailCommand;
+import me.spigot.Omnicore.Commands.Jail.Subcommands.Unjail.UnjailSubcommand;
 import me.spigot.Omnicore.Commands.Ping.PingCommand;
 import me.spigot.Omnicore.Commands.Staffchat.StaffchatCommand;
 import me.spigot.Omnicore.Listeners.Godmode.GodmodeListener;
 import me.spigot.Omnicore.Commands.Heal.HealCommand;
 import me.spigot.Omnicore.Commands.Help.HelpCommand;
 import me.spigot.Omnicore.Commands.Menu.MenuCommand;
+import me.spigot.Omnicore.Listeners.Jail.JailListener;
 import me.spigot.Omnicore.Listeners.Menu.MenuListener;
 import me.spigot.Omnicore.Commands.Vanish.VanishCommand;
 import org.bukkit.ChatColor;
@@ -23,6 +27,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.isGod;
 import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.setGod;
@@ -34,6 +42,8 @@ public class Omnicore extends JavaPlugin implements Listener {
         OmniLog.Info(getServer().getConsoleSender(), "Caricamento Omnicore in corso...");
 
         try {
+            Map<UUID, JailData> jailedPlayers = new HashMap<>();
+            JailCommand jailCommand = new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers);
             //Executors//
             getCommand("vanish").setExecutor(new VanishCommand(this, "vanish", "Abilita o disabilita la vanish."));
             getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita la fly."));
@@ -45,12 +55,15 @@ public class Omnicore extends JavaPlugin implements Listener {
             getCommand("hat").setExecutor(new HatCommand(this, "hat", "Permette al giocatore di mettere un item come cappello."));
             getCommand("staffchat").setExecutor(new StaffchatCommand(this, "staffchat [/sc]", "Permette di scrivere in una chat per staff."));
             getCommand("dice").setExecutor(new DiceCommand(this, "dice", "Fa uscire un numero casuale tra 1 e 100."));
+            getCommand("jail").setExecutor(jailCommand);
+            getCommand("unjail").setExecutor(new UnjailSubcommand(this, "Unjail", "Fa uscire il player dallo stato di jail", jailedPlayers));
             getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
 
             //Listeners//
             getServer().getPluginManager().registerEvents(new MenuListener(), this);
             getServer().getPluginManager().registerEvents(new GodmodeListener(), this);
             getServer().getPluginManager().registerEvents(this, this);
+            getServer().getPluginManager().registerEvents(new JailListener(this, jailCommand.getJailedPlayers()), this);
 
             //Config Save//
             saveDefaultConfig();
@@ -109,10 +122,12 @@ public class Omnicore extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent ev){
-        if (getConfig().getBoolean("maintenanceMode", true))
+        if (getConfig().getBoolean("maintenanceMode", true)){
             ev.getPlayer().kickPlayer(ChatColor.YELLOW + "Il server è in manutenzione.");
 
-        if (getConfig().getBoolean("debugMode", true))
-            OmniLog.Debug(getServer().getConsoleSender(), "Player " + ev.getPlayer().getName() + " has been kicked because of maintenance mode");
+            if (getConfig().getBoolean("debugMode", true))
+                OmniLog.Debug(getServer().getConsoleSender(), "Player " + ev.getPlayer().getName() + " has been kicked because of maintenance mode");
+        }
+
     }
 }
