@@ -1,10 +1,9 @@
 package me.spigot.Omnicore.Commands.Dice;
 
-import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Extensions.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Note;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

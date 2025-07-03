@@ -44,27 +44,29 @@ public class Omnicore extends JavaPlugin implements Listener {
         try {
             Map<UUID, JailData> jailedPlayers = new HashMap<>();
             //Executors//
-            getCommand("vanish").setExecutor(new VanishCommand(this, "vanish", "Abilita o disabilita la vanish."));
-            getCommand("fly").setExecutor(new FlyCommand(this, "fly", "Abilita o disabilita la fly."));
-            getCommand("god").setExecutor(new GodmodeCommand(this, "god", "Abilita o disabilita la godmode."));
-            getCommand("menu").setExecutor(new MenuCommand(this, "menu", "Apre la pagina del menu."));
-            getCommand("heal").setExecutor(new HealCommand(this, "heal", "Ripristina la salute e la fame."));
-            getCommand("ping").setExecutor(new PingCommand(this, "ping", "Mostra il ping del giocatore."));
-            getCommand("invsee").setExecutor(new InvseeCommand(this, "invsee", "Apre l'inventario di un giocatore."));
-            getCommand("hat").setExecutor(new HatCommand(this, "hat", "Permette al giocatore di mettere un item come cappello."));
-            getCommand("staffchat").setExecutor(new StaffchatCommand(this, "staffchat [/sc]", "Permette di scrivere in una chat per staff."));
-            getCommand("dice").setExecutor(new DiceCommand(this, "dice", "Fa uscire un numero casuale tra 1 e 100."));
-            getCommand("jail").setExecutor(new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers));
-            getCommand("unjail").setExecutor(new UnjailSubcommand(this, "unjail", "Fa uscire il player dallo stato di jail", jailedPlayers));
-            getCommand("omnihelp").setExecutor(new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi."));
+            new VanishCommand(this, "vanish", "Abilita o disabilita la vanish.");
+            new FlyCommand(this, "fly", "Abilita o disabilita la fly.");
+            new GodmodeCommand(this, "god", "Abilita o disabilita la godmode.");
+            new MenuCommand(this, "menu", "Apre la pagina del menu.");
+            new HealCommand(this, "heal", "Ripristina la salute e la fame.");
+            new PingCommand(this, "ping", "Mostra il ping del giocatore.");
+            new InvseeCommand(this, "invsee", "Apre l'inventario di un giocatore.");
+            new HatCommand(this, "hat", "Permette al giocatore di mettere un item come cappello.");
+            new StaffchatCommand(this, "staffchat [/sc]", "Permette di scrivere in una chat per staff.");
+            new DiceCommand(this, "dice", "Fa uscire un numero casuale tra 1 e 100.");
+            new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers);
+            new UnjailSubcommand(this, "unjail", "Fa uscire il player dallo stato di jail", jailedPlayers);
+
+            new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi.");
+
 
             JailCommand jailCommand = new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers);
             //Listeners//
-            getServer().getPluginManager().registerEvents(new MenuListener(), this);
-            getServer().getPluginManager().registerEvents(new GodmodeListener(), this);
-            getServer().getPluginManager().registerEvents(this, this);
-            getServer().getPluginManager().registerEvents(new JailListener(this, jailCommand.getJailedPlayers()), this);
+            new MenuListener(this);
+            new GodmodeListener(this);
+            new JailListener(this, jailCommand.getJailedPlayers());
 
+            getServer().getPluginManager().registerEvents(this, this);
             //Config Save//
             saveDefaultConfig();
 

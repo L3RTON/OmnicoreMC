@@ -1,6 +1,8 @@
-package me.spigot.Omnicore.API.Interfaces.OmniCommand;
+package me.spigot.Omnicore.API.Extensions.OmniCommand;
 
 import me.spigot.Omnicore.API.Registres.OmniHelp.OmniHelpRegistry;
+import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,6 +20,12 @@ public class OmniCommand implements CommandExecutor {
         this.description = description;
 
         OmniHelpRegistry.register("/" + commandName, description);
+
+        if (plugin.getCommand(commandName) != null) {
+            plugin.getCommand(commandName).setExecutor(this);
+        } else {
+            OmniLog.Error(Bukkit.getConsoleSender(), "Comando \"" + commandName + "\" non definito nel plugin.yml!");
+        }
     }
 
     @Override

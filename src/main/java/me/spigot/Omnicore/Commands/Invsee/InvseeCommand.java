@@ -1,6 +1,6 @@
 package me.spigot.Omnicore.Commands.Invsee;
 
-import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Extensions.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;

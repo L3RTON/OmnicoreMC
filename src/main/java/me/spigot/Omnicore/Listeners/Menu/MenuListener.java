@@ -1,5 +1,6 @@
 package me.spigot.Omnicore.Listeners.Menu;
 
+import me.spigot.Omnicore.API.Extensions.OmniListener.OmniListener;
 import org.bukkit.ChatColor;
 import org.bukkit.Instrument;
 import org.bukkit.Material;
@@ -10,8 +11,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class MenuListener implements Listener {
+public class MenuListener extends OmniListener {
+
+    public MenuListener(JavaPlugin plugin) {
+        super(plugin);
+    }
 
     @EventHandler
     public void onMenuOpen(InventoryClickEvent ev) {

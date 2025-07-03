@@ -1,6 +1,6 @@
 package me.spigot.Omnicore.Commands.Jail.Subcommands.Unjail;
 
-import me.spigot.Omnicore.API.Interfaces.OmniCommand.OmniCommand;
+import me.spigot.Omnicore.API.Extensions.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Jail.Helpers.JailData;
 import me.spigot.Omnicore.Commands.Jail.JailCommand;

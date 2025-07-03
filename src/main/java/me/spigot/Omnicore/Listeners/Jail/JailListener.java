@@ -1,5 +1,6 @@
 package me.spigot.Omnicore.Listeners.Jail;
 
+import me.spigot.Omnicore.API.Extensions.OmniListener.OmniListener;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
 import me.spigot.Omnicore.Commands.Jail.Helpers.JailData;
 import me.spigot.Omnicore.Commands.Jail.JailCommand;
@@ -16,12 +17,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Map;
 import java.util.UUID;
 
-public class JailListener implements Listener {
-    private final JavaPlugin plugin;
+public class JailListener extends OmniListener {
     private final Map<UUID, JailData> jailedPlayers;
 
     public JailListener(JavaPlugin plugin, Map<UUID, JailData> jailedPlayers) {
-        this.plugin = plugin;
+        super(plugin);
         this.jailedPlayers = jailedPlayers;
     }
 

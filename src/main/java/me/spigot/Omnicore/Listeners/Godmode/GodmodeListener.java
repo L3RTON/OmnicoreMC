@@ -1,13 +1,18 @@
 package me.spigot.Omnicore.Listeners.Godmode;
 
+import me.spigot.Omnicore.API.Extensions.OmniListener.OmniListener;
 import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class GodmodeListener implements Listener {
+public class GodmodeListener extends OmniListener {
+
+    public GodmodeListener(JavaPlugin plugin) {
+        super(plugin);
+    }
 
     @EventHandler
     public void onDamage(EntityDamageEvent event) {
