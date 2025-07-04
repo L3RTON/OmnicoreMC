@@ -47,12 +47,12 @@ commands:
   report:
     description: "Invia un report agli staffer in game."
     usage: /report <Message>
-  viewreports:
+  reportsview:
     description: "Lo staffer può vedere lo storico dei report."
-    usage: /viewreports
-  clearreports:
+    usage: /reportsview
+  reportsclear:
     description: "Cancella i reports dallo storico dei report."
-    usage: /clearreports
+    usage: /reportsclear
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"

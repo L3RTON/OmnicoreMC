@@ -24,7 +24,7 @@ public class OmniCommand implements CommandExecutor {
         if (plugin.getCommand(commandName) != null) {
             plugin.getCommand(commandName).setExecutor(this);
         } else {
-            OmniLog.Error(Bukkit.getConsoleSender(), "Il comando \"" + commandName + "\" non definito nel plugin.yml!");
+            OmniLog.Error(Bukkit.getConsoleSender(), "Il comando \"" + commandName + "\" non è definito nel plugin.yml!");
         }
     }
 

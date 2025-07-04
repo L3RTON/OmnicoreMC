@@ -12,8 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ViewreportsSubcommand extends OmniCommand {
-    public ViewreportsSubcommand(JavaPlugin plugin, String commandName, String description) {
+public class ReportsviewSubcommand extends OmniCommand {
+    public ReportsviewSubcommand(JavaPlugin plugin, String commandName, String description) {
         super(plugin, commandName, description);
     }
 

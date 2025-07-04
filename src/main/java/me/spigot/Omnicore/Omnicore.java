@@ -14,8 +14,8 @@ import me.spigot.Omnicore.Commands.Jail.Subcommands.Unjail.UnjailSubcommand;
 import me.spigot.Omnicore.Commands.Ping.PingCommand;
 import me.spigot.Omnicore.Commands.Report.Helper.ReportObject;
 import me.spigot.Omnicore.Commands.Report.ReportCommand;
-import me.spigot.Omnicore.Commands.Report.Subcommands.Clearreports.ClearreportsSubcommand;
-import me.spigot.Omnicore.Commands.Report.Subcommands.Viewreports.ViewreportsSubcommand;
+import me.spigot.Omnicore.Commands.Report.Subcommands.Clearreports.ReportsclearSubcommand;
+import me.spigot.Omnicore.Commands.Report.Subcommands.Viewreports.ReportsviewSubcommand;
 import me.spigot.Omnicore.Commands.Staffchat.StaffchatCommand;
 import me.spigot.Omnicore.Listeners.Godmode.GodmodeListener;
 import me.spigot.Omnicore.Commands.Heal.HealCommand;
@@ -65,8 +65,8 @@ public class Omnicore extends JavaPlugin implements Listener {
             new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers);
             new UnjailSubcommand(this, "unjail", "Fa uscire il player dallo stato di jail", jailedPlayers);
             new ReportCommand(this, "report", "Invia un report agli staffer in game.");
-            new ViewreportsSubcommand(this, "viewreports", "Fa vedere lo storico dei reports.");
-            new ClearreportsSubcommand(this, "clearreports", "Cancella i reports dallo storico dei report.");
+            new ReportsviewSubcommand(this, "reportsview", "Fa vedere lo storico dei reports.");
+            new ReportsclearSubcommand(this, "reportsclear", "Cancella i reports dallo storico dei report.");
 
             new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi.");
 
