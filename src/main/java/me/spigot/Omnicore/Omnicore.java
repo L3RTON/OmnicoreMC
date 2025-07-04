@@ -12,6 +12,10 @@ import me.spigot.Omnicore.Commands.Jail.Helpers.JailData;
 import me.spigot.Omnicore.Commands.Jail.JailCommand;
 import me.spigot.Omnicore.Commands.Jail.Subcommands.Unjail.UnjailSubcommand;
 import me.spigot.Omnicore.Commands.Ping.PingCommand;
+import me.spigot.Omnicore.Commands.Report.Helper.ReportObject;
+import me.spigot.Omnicore.Commands.Report.ReportCommand;
+import me.spigot.Omnicore.Commands.Report.Subcommands.Clearreports.ClearreportsSubcommand;
+import me.spigot.Omnicore.Commands.Report.Subcommands.Viewreports.ViewreportsSubcommand;
 import me.spigot.Omnicore.Commands.Staffchat.StaffchatCommand;
 import me.spigot.Omnicore.Listeners.Godmode.GodmodeListener;
 import me.spigot.Omnicore.Commands.Heal.HealCommand;
@@ -28,14 +32,18 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.isGod;
 import static me.spigot.Omnicore.Commands.Godmode.GodmodeCommand.setGod;
 
 public class Omnicore extends JavaPlugin implements Listener {
+    //Report List//
+    private final List<ReportObject> reports = new ArrayList<>();
+
+    public List<ReportObject> getReports() {
+        return reports;
+    }
 
     @Override
     public void onEnable() {
@@ -43,7 +51,7 @@ public class Omnicore extends JavaPlugin implements Listener {
 
         try {
             Map<UUID, JailData> jailedPlayers = new HashMap<>();
-            //Executors//
+            //Command Registers//
             new VanishCommand(this, "vanish", "Abilita o disabilita la vanish.");
             new FlyCommand(this, "fly", "Abilita o disabilita la fly.");
             new GodmodeCommand(this, "god", "Abilita o disabilita la godmode.");
@@ -56,6 +64,9 @@ public class Omnicore extends JavaPlugin implements Listener {
             new DiceCommand(this, "dice", "Fa uscire un numero casuale tra 1 e 100.");
             new JailCommand(this, "jail", "Metti un player in jail", jailedPlayers);
             new UnjailSubcommand(this, "unjail", "Fa uscire il player dallo stato di jail", jailedPlayers);
+            new ReportCommand(this, "report", "Invia un report agli staffer in game.");
+            new ViewreportsSubcommand(this, "viewreports", "Fa vedere lo storico dei reports.");
+            new ClearreportsSubcommand(this, "clearreports", "Cancella i reports dallo storico dei report.");
 
             new HelpCommand(this, "omnihelp", "Visualizza questa lista comandi.");
 
@@ -69,6 +80,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             getServer().getPluginManager().registerEvents(this, this);
             //Config Save//
             saveDefaultConfig();
+
 
             //StatusBar Init//
             new StatusActionBarTask().runTaskTimer(this, 0L, 20L);

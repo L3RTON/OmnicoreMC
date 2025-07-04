@@ -1,5 +1,5 @@
 name: Omnicore
-version: '0.1.2'
+version: '0.1.3'
 main: me.spigot.Omnicore.Omnicore
 api-version: '1.21.4'
 depend: [ ProtocolLib ]
@@ -31,7 +31,7 @@ commands:
   hat:
     description: "Permette al player di mettere un item come cappello."
     usage: /hat
-  staffchat:
+  staffchat [/sc]:
     description: "Permette al player di comunicare in chat staff."
     usage: /staffchat <Message>
     aliases: [ sc ]
@@ -42,8 +42,17 @@ commands:
     description: "Mette il player in stato di jail."
     usage: /jail <PlayerName> <Time>
   unjail:
-    description: "Fa uscire il player dallo stato di jail"
+    description: "Fa uscire il player dallo stato di jail."
     usage: /unjail <PlayerName>
+  report:
+    description: "Invia un report agli staffer in game."
+    usage: /report <Message>
+  viewreports:
+    description: "Lo staffer può vedere lo storico dei report."
+    usage: /viewreports
+  clearreports:
+    description: "Cancella i reports dallo storico dei report."
+    usage: /clearreports
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
@@ -71,5 +80,13 @@ commands:
       default: op
     omnicore.jail:
       description: "Permette al player di usare il comando /jail"
+      default: op
+    omnicore.reports.receive:
+      description: "Permette al player di vedere i reports in arrivo"
+    omnicore.reports.view:
+      description: "Permette allo staffer di usare il comando /viewreports"
+      default: op
+    omnicore.reports.clear:
+      description: "Permette allo staffer di cancellare lo storico dei report"
       default: op
 

@@ -65,7 +65,8 @@ public class VanishCommand extends OmniCommand {
                 OmniLog.Status(sender, "Il Giocatore " + ChatColor.GRAY + target.getName() + ChatColor.RED + " è ora visibile.");
 
                 for (Player p : Bukkit.getOnlinePlayers())
-                    p.hidePlayer(plugin, target);
+                    p.showPlayer(plugin, target);
+
                 return true;
             }
             OmniLog.Status(sender, "Hai disattivato la vanish.");
