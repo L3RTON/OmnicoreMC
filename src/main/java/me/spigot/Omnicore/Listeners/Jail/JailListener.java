@@ -2,14 +2,13 @@ package me.spigot.Omnicore.Listeners.Jail;
 
 import me.spigot.Omnicore.API.Extensions.OmniListener.OmniListener;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
-import me.spigot.Omnicore.Commands.Jail.Helpers.JailData;
-import me.spigot.Omnicore.Commands.Jail.JailCommand;
+import me.spigot.Omnicore.Modules.Jail.Helpers.JailData;
+import me.spigot.Omnicore.Modules.Jail.JailCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;

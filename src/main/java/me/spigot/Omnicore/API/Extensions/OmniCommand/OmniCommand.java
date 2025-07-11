@@ -13,13 +13,15 @@ public class OmniCommand implements CommandExecutor {
 
     private final String commandName;
     private final String description;
+    private final String category;
 
-    public OmniCommand(JavaPlugin plugin, String commandName, String description) {
+    public OmniCommand(JavaPlugin plugin, String category, String commandName, String description) {
         this.plugin = plugin;
         this.commandName = commandName;
         this.description = description;
+        this.category = category;
 
-        OmniHelpRegistry.register("/" + commandName, description);
+        OmniHelpRegistry.register(category, "/" + commandName, description);
 
         if (plugin.getCommand(commandName) != null) {
             plugin.getCommand(commandName).setExecutor(this);
@@ -29,7 +31,7 @@ public class OmniCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
         return true;
     }
 }

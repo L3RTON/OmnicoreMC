@@ -1,5 +1,5 @@
 name: Omnicore
-version: '0.1.3'
+version: '0.2'
 main: me.spigot.Omnicore.Omnicore
 api-version: '1.21.4'
 depend: [ ProtocolLib ]
@@ -19,9 +19,9 @@ commands:
   heal:
     description: "Permette al player di ripristinare la salute e la fame."
     usage: /heal [PlayerName]
-  menu:
-    description: "Permette al player di aprire il menu."
-    usage: /menu
+  admintools:
+    description: "Permette al player di aprire il menu per gli staffer."
+    usage: /admintools
   ping:
     description: "Permette al player di sapere il proprio ping."
     usage: /ping
@@ -53,6 +53,18 @@ commands:
   reportsclear:
     description: "Cancella i reports dallo storico dei report."
     usage: /reportsclear
+  rocket:
+    description: "Fa diventare il giocatore una cavia della Nasa."
+    usage: /rocket <PlayerName>
+  warn:
+    description: "Warna il player con la motivazione definita"
+    usage: /warn <PlayerName> <Motivation>
+  unwarn:
+    description: "Toglie tutti gli warn al player"
+    usage: /unwarn <PlayerName>
+  warnings:
+    description: "Mostra i warn del player"
+    usage: /warnings <PlayerName>
   permissions:
     omnicore.vanish:
       description: "Permette al player di usare il comando /vanish"
@@ -88,5 +100,14 @@ commands:
       default: op
     omnicore.reports.clear:
       description: "Permette allo staffer di cancellare lo storico dei report"
+      default: op
+    omnicore.rocket:
+      description: "Permette al player di usare il comando /rocket"
+      default: op
+    omnicore.warn:
+      description: "Permette al player di usare il comando /warn"
+      default: op
+    omnicore.unwarn:
+      description: "Permette al player di usare il comando /unwarn"
       default: op
 

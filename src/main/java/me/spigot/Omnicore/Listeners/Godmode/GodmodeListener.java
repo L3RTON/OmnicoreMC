@@ -1,7 +1,7 @@
 package me.spigot.Omnicore.Listeners.Godmode;
 
 import me.spigot.Omnicore.API.Extensions.OmniListener.OmniListener;
-import me.spigot.Omnicore.Commands.Godmode.GodmodeCommand;
+import me.spigot.Omnicore.Modules.Godmode.GodmodeCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
