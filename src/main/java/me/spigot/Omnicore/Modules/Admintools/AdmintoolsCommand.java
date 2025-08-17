@@ -1,6 +1,5 @@
 package me.spigot.Omnicore.Modules.Admintools;
 
-
 import me.spigot.Omnicore.API.Extensions.OmniCommand.OmniCommand;
 import me.spigot.Omnicore.API.Registres.Admintools.AdmintoolsRegistry;
 import me.spigot.Omnicore.API.Utils.OmniLog.OmniLog;
@@ -15,8 +14,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.List;
 
 public class AdmintoolsCommand extends OmniCommand {
     private static AdmintoolsCommand instance;

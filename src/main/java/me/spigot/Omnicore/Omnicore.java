@@ -47,7 +47,6 @@ import static me.spigot.Omnicore.Modules.Godmode.GodmodeCommand.setGod;
 
 public class Omnicore extends JavaPlugin implements Listener {
 
-
     //Lists//
     private final List<ReportObject> reports = new ArrayList<>();
 
@@ -123,7 +122,7 @@ public class Omnicore extends JavaPlugin implements Listener {
         }
         OmniLog.Info(getServer().getConsoleSender(), """
                 
-                
+
                  ██████  ███    ███ ███    ██ ██  ██████  ██████  ██████  ███████
                 ██    ██ ████  ████ ████   ██ ██ ██      ██    ██ ██   ██ ██     
                 ██    ██ ██ ████ ██ ██ ██  ██ ██ ██      ██    ██ ██████  █████  
@@ -168,7 +167,13 @@ public class Omnicore extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent ev){
+        OmniLog.Info(ev.getPlayer(), "Questo server sta runnando con Omnicore.\n" +
+                "Esegui il comando /omnihelp per la lista dei comandi eseguibili.");
+
         if (getConfig().getBoolean("maintenanceMode", true)){
+            if (ev.getPlayer().hasPermission("omnicore.maintenance"))
+                return;
+
             ev.getPlayer().kickPlayer(ChatColor.YELLOW + "Il server è in manutenzione.");
 
             if (getConfig().getBoolean("debugMode", true))

@@ -1,5 +1,5 @@
 name: Omnicore
-version: '0.2'
+version: '0.2.1'
 main: me.spigot.Omnicore.Omnicore
 api-version: '1.21.4'
 depend: [ ProtocolLib ]
@@ -109,5 +109,8 @@ commands:
       default: op
     omnicore.unwarn:
       description: "Permette al player di usare il comando /unwarn"
+      default: op
+    omnicore.maintenance:
+      description: "Permette al player di entrare nel server durante la manutenzione"
       default: op
 

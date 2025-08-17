@@ -137,6 +137,7 @@ public class JailCommand extends OmniCommand {
             target.setFlySpeed(0.1f);
 
             OmniLog.Status(target, "La tua pena è finita! Sei libero di vivere in pace!");
+            OmniLog.Info(sender, "Il player "+ ChatColor.LIGHT_PURPLE + target.getName() + ChatColor.YELLOW + " ha scontato la sua pena con successo.");
             target.playNote(target.getLocation(), Instrument.PIANO, Note.natural(1, Note.Tone.C));
             destroyJail(jailCenter);
             jailedPlayers.remove(target.getUniqueId());
