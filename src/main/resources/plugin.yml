@@ -1,8 +1,7 @@
 name: Omnicore
-version: '0.2.1'
+version: '0.2.2'
 main: me.spigot.Omnicore.Omnicore
-api-version: '1.21.4'
-depend: [ ProtocolLib ]
+api-version: '1.21.11'
 commands:
   vanish:
     description: "Rende il player invisibile."

@@ -106,7 +106,7 @@ public class Omnicore extends JavaPlugin implements Listener {
             AdmintoolsRegistry.register(new AdminTools("vanish", "Attiva/disattiva la vanish", Material.SPLASH_POTION, false, 0, 14));
             AdmintoolsRegistry.register(new AdminTools("heal", "Cura il player", Material.APPLE, false, 0, 16));
             AdmintoolsRegistry.register(new AdminTools("jail", "Mette un player in prigione", Material.IRON_BARS, true, 0, 37));
-            AdmintoolsRegistry.register(new AdminTools("warnings", "Mostra i warns di un player", Material.CHAIN, true, 0, 39));
+            AdmintoolsRegistry.register(new AdminTools("warnings", "Mostra i warns di un player", Material.IRON_CHAIN, true, 0, 39));
             AdmintoolsRegistry.register(new AdminTools("invsee", "Mostra l'inventario di un player", Material.CHEST, true, 0, 41));
             AdmintoolsRegistry.register(new AdminTools("reportsview", "Mostra i reports di un player", Material.BLACK_BANNER, true, 0, 43));
 
@@ -135,6 +135,7 @@ public class Omnicore extends JavaPlugin implements Listener {
         if (getConfig().getBoolean("debugMode", true)){
             OmniLog.Debug(getServer().getConsoleSender(), "Debug Mode is enabled!");
             OmniLog.Debug(getServer().getConsoleSender(), "Plugin version: " + getDescription().getVersion());
+            OmniLog.Debug(getServer().getConsoleSender(), "Bukkit version: " + getServer().getBukkitVersion());
         }
 
         if (getConfig().getBoolean("maintenanceMode", true)){

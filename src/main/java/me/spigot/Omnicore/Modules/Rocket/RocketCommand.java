@@ -86,7 +86,7 @@ public class RocketCommand extends OmniCommand {
                 }
 
                 target.getWorld().spawnParticle(Particle.FLAME, below, 10, 0.2, 0.1, 0.2, 0.01);
-                target.getWorld().spawnParticle(Particle.SMOKE_LARGE, below, 5, 0.3, 0.1, 0.3, 0.02);
+                target.getWorld().spawnParticle(Particle.LARGE_SMOKE, below, 5, 0.3, 0.1, 0.3, 0.02);
                 ticks++;
             }
         }.runTaskTimer(plugin, 0, 1);

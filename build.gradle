@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'me.spigot'
-version = '0.2.1'
+version = '0.2.2'
 
 repositories {
     mavenCentral()
@@ -15,15 +15,10 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
-    maven {
-        name = "protocollib"
-        url = "https://repo.dmulloy2.net/repository/public/"
-    }
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT") //spigot-api
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.7.0"; //protocollib
+    compileOnly("org.spigotmc:spigot-api:1.21.11-R0.1-SNAPSHOT") //spigot-api
     implementation 'com.googlecode.json-simple:json-simple:1.1.1' //json
 }
 
